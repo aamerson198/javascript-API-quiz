@@ -10,60 +10,58 @@ var stages = [
     question: "What are JavaScript Data Types?",
     choices: ["Alphabet", "Boolean", "Java", "Brains"],
     answer: "Boolean"
+},
+{
+    question: "Which company developed JavaScript?",
+    choices: ["Netscape", "Apple", "Microsoft", "Sprit Halloween"],
+    answer: "Netscape"
+},
+{
+    question: "What are JavaScript Data Types?",
+    choices: ["Alphabet", "Boolean", "Java", "Brains"],
+    answer: "Boolean"
 }
-// {
-//     name: "Meats",
-//     options: ["Pepperoni", "Ham", "Sausage", "Beef", "Chicken"],
-// },
-// {
-//     name: "Veggies",
-//     options: ["Green Peppers", "Onions", "Tomatoes", "Banana Peppers"],
-// },
 ];
 
 function renderQuestions(array) {
-    for (currentStage = 0; currentStage < array.length; currentStage++) {
-        console.log(currentStage)
+    // 1. Create an element.
+    var newQuestion = document.createTextNode(array["question"]);
+    question.append(newQuestion);
+    for (i = 0; i < array.choices.length; i++) {
         // 1. Create an element.
-        var newQuestion = document.createTextNode(stages[currentStage]["question"]);
-        question.append(newQuestion);
+        var button = document.createElement("button");
         // 2. Add content
-        stages[currentStage]["choices"].forEach(element => renderChoice(choices, element));
+        button.setAttribute("class", "btn btn-info");
+        button.textContent = array.choices[i];
+        button.setAttribute("data-value", array.choices[i]);
         // 3. Append to an existing element
+        choices.append(button);
     }
-}
-
-function renderChoice(parent, text){
-    choice = document.createElement("button")
-    choice.textContent = text
-    parent.append(choice);
 }
 
 start.addEventListener("click", function (){
     start.style.display = "none";
-    renderQuestions(stages);
+    var questionToDisplay = stages[currentStage];
+    renderQuestions(questionToDisplay);
 })
 
 choices.addEventListener("click", function (event) {
     if (event.target.matches("button")) {
         console.log(currentStage);
         var selectedAnswer = event.target.textContent;
-        if (selectedAnswer == stages[currentStage-1]["answer"]){
+        if (selectedAnswer == stages[currentStage]["answer"]){
             console.log(selectedAnswer)
+            setTimeout(function () {
+                currentStage++;
+                var questionToDisplay = stages[currentStage];
+                question.textContent = "";
+                choices.innerHTML = '';
+                renderQuestions(questionToDisplay);
+            }, 1000);
         } else {
             
         }
         
 
-        selection.textContent = "";
-        var crustToDisplay = document.createElement("h3");
-        crustToDisplay.textContent = selectedCrust;
-        selection.append(crustToDisplay);
-
-        setTimeout(function () {
-            currentStage++;
-            var optionsToDisplay = stages[currentStage].options;
-            renderOptions(optionsToDisplay);
-        }, 1000);
     }
 });
