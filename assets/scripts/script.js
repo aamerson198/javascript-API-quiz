@@ -7,19 +7,19 @@ var choices = document.getElementById("choices");
 var currentStage = 0;
 var stages = [
 {
-    question: "What are JavaScript Data Types?",
+    question: "Which is a JavaScript Data Types?",
     choices: ["Alphabet", "Boolean", "Java", "Brains"],
     answer: "Boolean"
 },
 {
     question: "Which company developed JavaScript?",
-    choices: ["Netscape", "Apple", "Microsoft", "Sprit Halloween"],
+    choices: ["Netscape", "Apple", "Microsoft", "Spirit Halloween"],
     answer: "Netscape"
 },
 {
-    question: "What are JavaScript Data Types?",
-    choices: ["Alphabet", "Boolean", "Java", "Brains"],
-    answer: "Boolean"
+    question: "Which is a type of Pop up boxes available in JavaScript?",
+    choices: ["Confirm", "Start", "Yes", "Spooky"],
+    answer: "Confirm"
 }
 ];
 
