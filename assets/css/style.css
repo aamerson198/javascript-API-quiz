@@ -4,10 +4,10 @@ body{
 }
 
 #container{
-    margin : 20px auto;
+    margin: 20px auto;
     background-color: white;
     height: 300px;
-    width : 700px;
+    width: 700px;
     border-radius: 5px;
     box-shadow: 0px 5px 15px 0px  rgb(7, 192, 161);
     position: relative;
@@ -18,15 +18,29 @@ body{
     word-break: break-all;
     width:200px;
     height:50px;
-    border : 2px solid lightgrey;
+    border: 2px solid  rgb(192, 190, 190);
     text-align: center;
     cursor: pointer;
     position: absolute;
     left:250px;
     top:50px;
-    color : lightgrey;
+    color: rgb(192, 190, 190);
 }
 #start:hover{
     border: 3px solid rgb(76, 240, 232);
-    color :  rgb(76, 240, 232);
+    color:  rgb(76, 240, 232);
+}
+#question{
+    font-size: 20px;
+    font-family: 'Exo', sans-serif;
+    color:rgb(5, 145, 121);
+    text-align: center;
+    padding-top: 50px;
+}
+#choices{
+    text-align: center;
+    padding-top: 50px;
+}
+.btn{
+    margin-right: 10px;
 }
