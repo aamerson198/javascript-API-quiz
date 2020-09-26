@@ -24,17 +24,17 @@ var stages = [
 ];
 
 function renderQuestions(array) {
-    // 1. Create an element.
+    
     var newQuestion = document.createTextNode(array["question"]);
     question.append(newQuestion);
     for (i = 0; i < array.choices.length; i++) {
-        // 1. Create an element.
+
         var button = document.createElement("button");
-        // 2. Add content
+
         button.setAttribute("class", "btn btn-info");
         button.textContent = array.choices[i];
         button.setAttribute("data-value", array.choices[i]);
-        // 3. Append to an existing element
+
         choices.append(button);
     }
 }
