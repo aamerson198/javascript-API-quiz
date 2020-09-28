@@ -62,3 +62,13 @@ body{
     bottom: 20px;
     padding-left: 10px;
 }
+/* links colors */
+a:link {
+    color: rgb(5, 145, 121);
+}
+a:visited {
+    color: rgb(38, 109, 97);
+}
+a:hover {
+    color: rgb(76, 240, 232);
+}

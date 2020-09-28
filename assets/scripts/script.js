@@ -1,4 +1,4 @@
-// select all elements
+var container = document.getElementById("container");
 var start = document.getElementById("start");
 var quiz = document.getElementById("quiz");
 var question = document.getElementById("question");
@@ -40,6 +40,21 @@ var stages = [
     },
 ];
 
+function makeDocument() {
+    container.innerHTML = "";
+    // let frame = document.getElementById("viewHighscore");
+            
+    // let doc = document.implementation.createHTMLDocument("New Document");
+    let p = document.createElement("p");
+    p.innerHTML = "This is a new paragraph.";
+    
+    // try {
+    //     container.appendChild(p);
+    // } catch(e) {
+    //     console.log(e);
+    // }
+}
+
 function startTimer(){
     var timer = setInterval(function(){
         if(gameOver != true){
@@ -67,6 +82,7 @@ function renderQuestions(array) {
         gameOver = true;
     }
 }
+
 
 start.addEventListener("click", function () {
     startTimer()
