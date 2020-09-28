@@ -40,21 +40,6 @@ var stages = [
     },
 ];
 
-function makeDocument() {
-    container.innerHTML = "";
-    // let frame = document.getElementById("viewHighscore");
-            
-    // let doc = document.implementation.createHTMLDocument("New Document");
-    let p = document.createElement("p");
-    p.innerHTML = "This is a new paragraph.";
-    
-    // try {
-    //     container.appendChild(p);
-    // } catch(e) {
-    //     console.log(e);
-    // }
-}
-
 function startTimer(){
     var timer = setInterval(function(){
         if(gameOver != true){
