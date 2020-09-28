@@ -52,8 +52,6 @@ function startTimer(){
 
     }, 1000);
 }
-// extra
-confetti.start()
 
 function renderQuestions(array) {
     if(array != undefined){
@@ -71,10 +69,12 @@ function renderQuestions(array) {
     }
 }
 
+
+
 // Where the Event Listeners make their home
 
-start.addEventListener("click", function (event) {
-    startTimer()
+start.addEventListener("click", function () {
+    startTimer();
     start.style.display = "none";
     var questionToDisplay = stages[currentStage];
     renderQuestions(questionToDisplay);
@@ -95,3 +95,5 @@ choices.addEventListener("click", function (event) {
         }, 100);
     }
 });
+// // extra
+// confetti.start();
