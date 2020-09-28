@@ -3,8 +3,10 @@ var start = document.getElementById("start");
 var quiz = document.getElementById("quiz");
 var question = document.getElementById("question");
 var choices = document.getElementById("choices");
-
+var timer = document.getElementById("timer")
 var currentStage = 0;
+var timeLeft = 75;
+var gameOver = false;
 var stages = [
     {
         question: "Which is a JavaScript Data Types?",
@@ -23,7 +25,17 @@ var stages = [
     },
 ];
 
-// function startTimer
+function startTimer(){
+    var timer = setInterval(function(){
+        if(gameOver != true){
+            document.getElementById("timer").innerHTML = "Time Remaining: " + timeLeft;
+            timeLeft -= 1;
+        } else {
+            clearInterval(timer);  
+        }
+
+    }, 1000);
+}
 
 function renderQuestions(array) {
     if(array != undefined){
@@ -36,10 +48,13 @@ function renderQuestions(array) {
             button.setAttribute("data-value", array.choices[i]);
             choices.append(button);
         }
+    } else {
+        gameOver = true;
     }
 }
 
 start.addEventListener("click", function () {
+    startTimer()
     start.style.display = "none";
     var questionToDisplay = stages[currentStage];
     renderQuestions(questionToDisplay);
@@ -47,16 +62,17 @@ start.addEventListener("click", function () {
 
 choices.addEventListener("click", function (event) {
     if (event.target.matches("button")) {
-        console.log(currentStage);
+
         var selectedAnswer = event.target.textContent;
-        if (currentStage < stages.length) {
-            setTimeout(function () {
-                currentStage++;
-                var questionToDisplay = stages[currentStage];
-                question.textContent = "";
-                choices.innerHTML = "";
-                renderQuestions(questionToDisplay);
-            }, 1000);
+        if(selectedAnswer != stages[currentStage].answer){
+            timeLeft -= 10;
         }
+        setTimeout(function () {
+            currentStage++;
+            var questionToDisplay = stages[currentStage];
+            question.textContent = "";
+            choices.innerHTML = "";
+            renderQuestions(questionToDisplay);
+        }, 1000);
     }
 });
