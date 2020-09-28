@@ -1,3 +1,4 @@
+// Where the gobal Var's live
 var container = document.getElementById("container");
 var start = document.getElementById("start");
 var quiz = document.getElementById("quiz");
@@ -51,6 +52,8 @@ function startTimer(){
 
     }, 1000);
 }
+// extra
+confetti.start()
 
 function renderQuestions(array) {
     if(array != undefined){
@@ -68,8 +71,9 @@ function renderQuestions(array) {
     }
 }
 
+// Where the Event Listeners make their home
 
-start.addEventListener("click", function () {
+start.addEventListener("click", function (event) {
     startTimer()
     start.style.display = "none";
     var questionToDisplay = stages[currentStage];

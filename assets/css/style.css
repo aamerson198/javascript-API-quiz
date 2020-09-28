@@ -44,6 +44,15 @@ body{
 .btn{
     margin-right: 10px;
 }
+
+h3{
+    font-family: 'Bebas Neue', cursive;
+    color: rgb(5, 145, 121);
+    text-align: center;
+    padding-top: 10px;
+}
+
+/* need to group  */
 #highscore{
     font-family: 'Bebas Neue', cursive;
     color: rgb(5, 145, 121);
