@@ -23,6 +23,21 @@ var stages = [
         choices: ["Confirm", "Start", "Yes", "Spooky"],
         answer: "Confirm",
     },
+    {
+        question: "Which tool used during development and debugging for printing content to the debugger?",
+        choices: ["Confirm", "Sandy Claws", "For loops", "Console.log"],
+        answer: "Console.log",
+    },
+    {
+        question: "What is used to close an If/Else statement?",
+        choices: ["Jack Skellington", "Quotes", "Curly Brackets", "Square Brackets"],
+        answer: "Curly Brackets",
+    },
+    {
+        question: "What can Arrays in Javascript store?",
+        choices: ["Numbers and Strings", "Other Arrays", "Booleans", "All Of The Above"],
+        answer: "All Of The Above",
+    },
 ];
 
 function startTimer(){
@@ -73,6 +88,6 @@ choices.addEventListener("click", function (event) {
             question.textContent = "";
             choices.innerHTML = "";
             renderQuestions(questionToDisplay);
-        }, 1000);
+        }, 100);
     }
 });
