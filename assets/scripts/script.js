@@ -78,7 +78,6 @@ start.addEventListener("click", function () {
 
 choices.addEventListener("click", function (event) {
     if (event.target.matches("button")) {
-
         var selectedAnswer = event.target.textContent;
         if(selectedAnswer != stages[currentStage].answer){
             timeLeft -= 10;
