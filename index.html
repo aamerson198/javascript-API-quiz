@@ -20,16 +20,18 @@
 </head>
 <body>
     <div id="container">
+        <form id="submitScore">
+        </form>
         <div id="begin">Start Quiz!</div>
         <div id="quiz">
             <div id="question"></div>
             <div id="choices"></div>
         </div>
+        <div id="timer">Time Remaining: </div>       
         <a id="highscore" href="highscore.html" >View Highscore</a>
-        
-        <div id="timer">Time Remaining: </div>
-    </div>
 
+    </div>
+    onclick="isValidCreditCard(document.getElementById('initials').value,timeLeft)"
 
     <script src="./assets/scripts/script.js"></script>
     <script

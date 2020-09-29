@@ -5,6 +5,7 @@ var quiz = document.getElementById("quiz");
 var question = document.getElementById("question");
 var choices = document.getElementById("choices");
 var timer = document.getElementById("timer")
+var submitForm = document.getElementById("submitScore")
 var currentStage = 0;
 var timeLeft = 75;
 var gameOver = false;
@@ -49,10 +50,33 @@ function startTimer(){
         } else {
             clearInterval(timer);  
         }
-
     }, 1000);
 }
 
+function  renderSubmitScore(){
+    var h1 = document.createElement("h4");
+    h1.textContent = "Your Score is: " + timeLeft ;
+    submitForm.append(h1);
+    var br = document.createElement("br");
+    var label = document.createElement("label");
+    label.setAttribute("for", "initials");
+    label.textContent = "Enter Your Initials";
+    submitForm.append(label);
+    submitForm.append(br);
+    var br = document.createElement("br");
+    var initials = document.createElement("input");
+    initials.setAttribute("type", "text");
+    initials.setAttribute("id", "initials");
+    initials.setAttribute("name", "initials");
+    submitForm.append(initials);
+    submitForm.append(br);
+    var submit = document.createElement("input");
+    submit.setAttribute("class", "btn btn-info");
+    submit.setAttribute("type", "submit");
+    submit.setAttribute("value", "Submit");
+    submitForm.append(submit);
+    timer.style.display = "none";
+}
 
 function renderQuestions(array) {
     if(array != undefined){
@@ -67,6 +91,8 @@ function renderQuestions(array) {
         }
     } else {
         gameOver = true;
+        renderSubmitScore()
+        // window.location.href = "highscore.html"
     }
 }
 

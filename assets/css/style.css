@@ -39,8 +39,23 @@ body{
 }
 #choices{
     text-align: center;
+    padding-top: 10px;
+}
+
+#submitScore{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 30px;
+    color: rgb(5, 145, 121);
+    text-align: center;
     padding-top: 50px;
 }
+
+#submitScore input{
+    font-family: 'Bebas Neue', cursive;
+    text-align: center;
+    margin-top: 10px;
+}
+
 .btn{
     margin-right: 10px;
 }
