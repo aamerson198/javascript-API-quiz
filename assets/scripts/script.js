@@ -1,6 +1,6 @@
 // Where the gobal Var's live
 var container = document.getElementById("container");
-var start = document.getElementById("start");
+var begin = document.getElementById("begin");
 var quiz = document.getElementById("quiz");
 var question = document.getElementById("question");
 var choices = document.getElementById("choices");
@@ -40,8 +40,6 @@ var stages = [
         answer: "All Of The Above",
     },
 ];
-// extra
-confetti.start();
 
 function startTimer(){
     var timer = setInterval(function(){
@@ -76,9 +74,9 @@ function renderQuestions(array) {
 
 // Where the Event Listeners make their home
 
-start.addEventListener("click", function () {
+begin.addEventListener("click", function () {
     startTimer();
-    start.style.display = "none";
+    begin.style.display = "none";
     var questionToDisplay = stages[currentStage];
     renderQuestions(questionToDisplay);
 });
