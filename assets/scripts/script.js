@@ -40,6 +40,8 @@ var stages = [
         answer: "All Of The Above",
     },
 ];
+// extra
+confetti.start();
 
 function startTimer(){
     var timer = setInterval(function(){
@@ -52,6 +54,7 @@ function startTimer(){
 
     }, 1000);
 }
+
 
 function renderQuestions(array) {
     if(array != undefined){
@@ -95,5 +98,3 @@ choices.addEventListener("click", function (event) {
         }, 100);
     }
 });
-// // extra
-// confetti.start();
