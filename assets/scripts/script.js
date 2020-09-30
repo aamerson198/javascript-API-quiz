@@ -7,6 +7,7 @@ var choices = document.getElementById("choices");
 var timer = document.getElementById("timer")
 var submitForm = document.getElementById("submitScore")
 var currentStage = 0;
+var correctAnswers = 0;
 var timeLeft = 75;
 var gameOver = false;
 var stages = [
@@ -72,10 +73,16 @@ function  renderSubmitScore(){
     submitForm.append(br);
     var submit = document.createElement("input");
     submit.setAttribute("class", "btn btn-info");
-    submit.setAttribute("type", "submit");
     submit.setAttribute("value", "Submit");
+    submit.setAttribute("onclick", "saveScore(document.getElementById('initials').value,timeLeft)");
     submitForm.append(submit);
     timer.style.display = "none";
+}
+
+function saveScore(userInitials, score){
+    myStorage = window.localStorage;
+    myStorage.setItem(userInitials, score);
+    window.location.href = "highscore.html"
 }
 
 function renderQuestions(array) {
@@ -91,6 +98,9 @@ function renderQuestions(array) {
         }
     } else {
         gameOver = true;
+        if(correctAnswers==0){
+            timeLeft=0;
+        }
         renderSubmitScore()
         // window.location.href = "highscore.html"
     }
@@ -112,6 +122,8 @@ choices.addEventListener("click", function (event) {
         var selectedAnswer = event.target.textContent;
         if(selectedAnswer != stages[currentStage].answer){
             timeLeft -= 10;
+        }else {
+            correctAnswers++;
         }
         setTimeout(function () {
             currentStage++;
