@@ -2,6 +2,13 @@
 
 ## Description 
 
+This is a Javascript Quiz made by using DOM's to update the questions and move to the highscore page.
+
+## Improvements
+
+1. Make the UI mobile responsive.
+2. Make a more modern design.
+
 
 ## Installation
 
@@ -16,6 +23,12 @@ To implement changes:
 
 ## Usage 
 
+This GIF demos the basic functionality of the quiz.
+
+<b>not included it the sound effects for each answer for right, wrong, and failed to complete.</b>
+
+![Alt Text](https://media.giphy.com/media/ypbxLSKEUe9fxTYfbu/giphy.gif)
+
 To view this site live [click here.](https://shelb-doc.github.io/javascript-API-quiz/)
 
 To view this locally, clone the repository, and open [index.html](index.html) with your browser of choice.
@@ -24,6 +37,8 @@ To view this locally, clone the repository, and open [index.html](index.html) wi
 ## Credits
 
 Thank you to my cat Mimikyu for being my Rubber Ducky.
+
+Thank you to Jonathan Watson for the knowledge for the seprate js file
 
 ## License
 
