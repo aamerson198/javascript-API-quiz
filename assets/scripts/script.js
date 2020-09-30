@@ -14,6 +14,8 @@ var currentStage = 0;
 var correctAnswers = 0;
 var timeLeft = 75;
 var gameOver = false;
+
+// Holds the questions, choices. and answers
 var stages = [
     {
         question: "Which is a JavaScript Data Types?",
@@ -47,13 +49,26 @@ var stages = [
     },
 ];
 
+/* Starts the timer. 
+It will subtract 1 from timeLeft each second.
+if the Game is over of the time is zero it will cleat the timer, clear the question and choices.
+*/
 function startTimer(){
     var timer = setInterval(function(){
-        if(gameOver != true){
+        if(gameOver != true && timeLeft>0){
             document.getElementById("timer").innerHTML = "Time Remaining: " + timeLeft;
             timeLeft -= 1;
         } else {
             clearInterval(timer);  
+            gameOver = true;
+            if(correctAnswers==0 || timeLeft==0){
+                totalFailure.play();
+                timeLeft=0;
+            }
+            question.textContent = "";
+            choices.innerHTML = "";
+            answerStatus.textContent = "";
+            renderSubmitScore()
         }
     }, 1000);
 }
@@ -105,7 +120,6 @@ function renderQuestions(array) {
             button.textContent = array.choices[i];
             button.setAttribute("data-value", array.choices[i]);
             choices.append(button);
-
         }
     } else {
         gameOver = true;
@@ -114,7 +128,6 @@ function renderQuestions(array) {
             totalFailure.play();
             timeLeft=0;
         }
-        renderSubmitScore()
     }
 }
 
@@ -144,6 +157,9 @@ choices.addEventListener("click", function (event) {
         setTimeout(function () {
             currentStage++;
             var questionToDisplay = stages[currentStage];
+            if(timeLeft<0){
+                timeLeft=0;
+            }
             question.textContent = "";
             choices.innerHTML = "";
             renderQuestions(questionToDisplay);
