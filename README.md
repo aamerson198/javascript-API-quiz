@@ -38,7 +38,7 @@ To view this locally, clone the repository, and open [index.html](index.html) wi
 
 Thank you to my cat Mimikyu for being my Rubber Ducky.
 
-Thank you to Jonathan Watson for the knowledge for the seprate js file
+Thank you to Jonathan Watson for the knowledge for the septate js file
 
 ## License
 
