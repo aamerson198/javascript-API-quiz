@@ -73,6 +73,7 @@ function  renderSubmitScore(){
     initials.setAttribute("type", "text");
     initials.setAttribute("id", "initials");
     initials.setAttribute("name", "initials");
+    initials.required= true;
     submitForm.append(initials);
     submitForm.append(br);
     var submit = document.createElement("input");
@@ -84,9 +85,14 @@ function  renderSubmitScore(){
 }
 
 function saveScore(userInitials, score){
-    myStorage = window.localStorage;
-    myStorage.setItem(userInitials, score);
-    window.location.href = "highscore.html"
+    var initials = document.getElementById("initials")
+    if(initials.value==""){
+        answerStatus.textContent = "Initials can't be blank!";
+    } else{
+        myStorage = window.localStorage;
+        myStorage.setItem(userInitials, score);
+        window.location.href = "highscore.html"
+    }
 }
 
 function renderQuestions(array) {
@@ -109,7 +115,6 @@ function renderQuestions(array) {
             timeLeft=0;
         }
         renderSubmitScore()
-        // window.location.href = "highscore.html"
     }
 }
 
