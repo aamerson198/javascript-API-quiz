@@ -73,6 +73,8 @@ function startTimer(){
     }, 1000);
 }
 
+// Renders the Highscore page 
+
 function  renderSubmitScore(){
     var h1 = document.createElement("h4");
     h1.textContent = "Your Score is: " + timeLeft ;
@@ -99,6 +101,7 @@ function  renderSubmitScore(){
     timer.style.display = "none";
 }
 
+// stores the high score
 function saveScore(userInitials, score){
     var initials = document.getElementById("initials")
     if(initials.value==""){
@@ -110,6 +113,7 @@ function saveScore(userInitials, score){
     }
 }
 
+// renders the questions on the page and checks if the answer is correct or incorrect
 function renderQuestions(array) {
     if(array != undefined){
         var newQuestion = document.createTextNode(array["question"]);
@@ -134,7 +138,7 @@ function renderQuestions(array) {
 
 
 // Where the Event Listeners make their home
-
+// listening to start the time
 begin.addEventListener("click", function () {
     startTimer();
     begin.style.display = "none";
@@ -142,6 +146,7 @@ begin.addEventListener("click", function () {
     renderQuestions(questionToDisplay);
 });
 
+// listens for the selected choices
 choices.addEventListener("click", function (event) {
     if (event.target.matches("button")) {
         var selectedAnswer = event.target.textContent;

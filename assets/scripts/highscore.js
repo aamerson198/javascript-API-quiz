@@ -1,6 +1,9 @@
+
+// Where the gobal Var's live
 var chart = document.getElementById("tableData")
 myStorage = window.localStorage;
 
+// makes table for the highscore
 for (let i = 0; i < myStorage.length; i++) {
     var key = localStorage.key(i);
     let storedValue = myStorage.getItem(key)
@@ -13,7 +16,7 @@ for (let i = 0; i < myStorage.length; i++) {
     tr.append(td);
     chart.append(tr);
 }
-
+// clears the highscore in local and on screen
 function clearScore(){
     myStorage.clear();
     location.reload();
