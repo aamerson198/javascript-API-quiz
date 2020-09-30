@@ -41,6 +41,12 @@ body{
     text-align: center;
     padding-top: 10px;
 }
+#answer{
+    font-size: 15px;
+    font-family: 'Exo', sans-serif;
+    text-align: center;
+    padding-top: 10px;
+}
 
 #submitScore{
     font-family: 'Bebas Neue', cursive;

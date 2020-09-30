@@ -6,6 +6,10 @@ var question = document.getElementById("question");
 var choices = document.getElementById("choices");
 var timer = document.getElementById("timer")
 var submitForm = document.getElementById("submitScore")
+var correctSound = document.getElementById("correctAnswer")
+var incorrectSound = document.getElementById("incorrectAnswer")
+var totalFailure = document.getElementById("totalFailure")
+var answerStatus = document.getElementById("answer")
 var currentStage = 0;
 var correctAnswers = 0;
 var timeLeft = 75;
@@ -95,10 +99,13 @@ function renderQuestions(array) {
             button.textContent = array.choices[i];
             button.setAttribute("data-value", array.choices[i]);
             choices.append(button);
+
         }
     } else {
         gameOver = true;
+        answerStatus.textContent = "";
         if(correctAnswers==0){
+            totalFailure.play();
             timeLeft=0;
         }
         renderSubmitScore()
@@ -121,9 +128,13 @@ choices.addEventListener("click", function (event) {
     if (event.target.matches("button")) {
         var selectedAnswer = event.target.textContent;
         if(selectedAnswer != stages[currentStage].answer){
+            incorrectSound.play();
             timeLeft -= 10;
+            answerStatus.textContent = "Incorrect!";
         }else {
+            correctSound.play();
             correctAnswers++;
+            answerStatus.textContent = "Correct!";
         }
         setTimeout(function () {
             currentStage++;
